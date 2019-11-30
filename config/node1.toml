@@ -1,0 +1,23 @@
+[parity]
+chain = "/home/parity/genesis.json"
+
+[network]
+id=1000
+
+[rpc]
+port = 8545
+interface = "127.0.0.1"
+cors= ["all"]
+apis = ["web3", "eth", "net", "personal", "parity", "parity_set", "traces", "rpc", "parity_accounts"]
+
+[websockets]
+port = 8546
+
+[account]
+password = ["/home/parity/passwords/node.pwds"]
+
+[mining]
+engine_signer = "0x24B2aD989ad4E2903b1471d1B49Fa3F8a2f24980"
+reseal_on_txs = "none"
+usd_per_tx = "0"
+

@@ -1,0 +1,34 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: parity-node1
+  name: parity-node1
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: parity-node1
+    spec:
+      containers:
+      - args:
+        - --config
+        - /home/parity/node1.toml
+        - --keys-path 
+        - /home/parity/keys
+        - --jsonrpc-interface
+        - all
+        image: marlowl/parity-poa:latest
+        imagePullPolicy: Always
+        name: parity-node1
+        ports:
+        - containerPort: 8545
+        - containerPort: 8546
+        - containerPort: 30303
+        - containerPort: 30303
+          protocol: UDP
+        resources: {}
+      restartPolicy: Always
+status: {}
